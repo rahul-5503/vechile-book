@@ -1874,11 +1874,11 @@ textarea.is-invalid {
 	display: inline-block
 }
 
-.th-mobile-menu ul li.th-active>a {
+.th-mobile-menu ul li.th-active>span {
 	color: var(--theme-color)
 }
 
-.th-mobile-menu ul li.th-active>a:before {
+.th-mobile-menu ul li.th-active>span:before {
 	-webkit-transform: rotate(90deg);
 	-ms-transform: rotate(90deg);
 	transform: rotate(90deg)
