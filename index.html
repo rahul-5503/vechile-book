@@ -127,27 +127,7 @@ checkEmail(email);
        
    </head>
    <body class="home2">
-      <div class="preloader">
-         <button class="th-btn style3 preloaderCls">Cancel Preloader</button>
-         <div class="preloader-inner">
-            <div class="loading-window">
-               <div class="car">
-                  <div class="strike"></div>
-                  <div class="strike strike2"></div>
-                  <div class="strike strike3"></div>
-                  <div class="strike strike4"></div>
-                  <div class="strike strike5"></div>
-                  <div class="car-detail spoiler"></div>
-                  <div class="car-detail back"></div>
-                  <div class="car-detail center"></div>
-                  <div class="car-detail center1"></div>
-                  <div class="car-detail front"></div>
-                  <div class="car-detail wheel"></div>
-                  <div class="car-detail wheel wheel2"></div>
-               </div>
-            </div>
-         </div>
-      </div>
+     
       <div class="th-menu-wrapper">
          <div class="th-menu-area text-center">
             <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
@@ -205,93 +185,21 @@ checkEmail(email);
                            </ul>
                         </li>
                      </ul>
+                     <li class="menu-item-has-children clickable-a">
+                        <span onclick="scrollToSection('about-sec')">About Us</span>
+                     </li>
+                     <li class="menu-item-has-children clickable-a">
+                        <span onclick="scrollToSection('travel')">Travel Planner</span>
+                     </li>
+                     <li class="menu-item-has-children clickable-a">
+                        <span onclick="scrollToSection('contact-sec')">Contact</span></li>
                   </li>
-                  <li class="menu-item-has-children">
-                     <a href="#">About Us</a>
-                     <ul class="sub-menu">
-                        <li><a href="about.html">About Style 1</a></li>
-                        <li><a href="about-2.html">About Style 2</a></li>
-                     </ul>
-                  </li>
-                  <li class="menu-item-has-children">
-                     <a href="#">Service</a>
-                     <ul class="sub-menu">
-                        <li><a href="service.html">Service Style 1</a></li>
-                        <li><a href="service-2.html">Service Style 2</a></li>
-                        <li><a href="service-details.html">Service Details Style 1</a></li>
-                        <li><a href="service-details-2.html">Service Details Style 2</a></li>
-                     </ul>
-                  </li>
-                  <li class="menu-item-has-children">
-                     <a href="#">Blog</a>
-                     <ul class="sub-menu">
-                        <li>
-                           <a href="#">Blog Layout</a>
-                           <ul class="sub-menu">
-                              <li><a href="blog-grid-2-columns.html">Blog Grid 02 Columns</a></li>
-                              <li><a href="blog-grid-3-columns.html">Blog Grid 03 Columns</a></li>
-                              <li><a href="blog-list.html">Blog List</a></li>
-                           </ul>
-                        </li>
-                        <li>
-                           <a href="blog.html">Blog Sidebar</a>
-                           <ul class="sub-menu">
-                              <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                              <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                              <li><a href="blog.html">Blog No Sidebar</a></li>
-                           </ul>
-                        </li>
-                        <li><a href="blog-details.html">Blog Details Style 1</a></li>
-                        <li><a href="blog-details-2.html">Blog Details Style 2</a></li>
-                     </ul>
-                  </li>
-                  <li class="menu-item-has-children">
-                     <a href="#">Pages</a>
-                     <ul class="sub-menu">
-                        <li class="menu-item-has-children">
-                           <a href="#">Shop</a>
-                           <ul class="sub-menu">
-                              <li><a href="shop.html">Shop</a></li>
-                              <li><a href="shop-details.html">Shop Details</a></li>
-                              <li><a href="cart.html">Cart Page</a></li>
-                              <li><a href="checkout.html">Checkout</a></li>
-                              <li><a href="wishlist.html">Wishlist</a></li>
-                           </ul>
-                        </li>
-                        <li class="menu-item-has-children">
-                           <a href="#">Driver</a>
-                           <ul class="sub-menu">
-                              <li><a href="team.html">Driver Style 1</a></li>
-                              <li><a href="team-2.html">Driver Style 2</a></li>
-                              <li><a href="team-details.html">Driver Details Style 1</a></li>
-                              <li><a href="team-details-2.html">Driver Details Style 2</a></li>
-                           </ul>
-                        </li>
-                        <li class="menu-item-has-children">
-                           <a href="#">Taxi</a>
-                           <ul class="sub-menu">
-                              <li><a href="taxi.html">Taxi Style 1</a></li>
-                              <li><a href="taxi-2.html">Taxi Style 2</a></li>
-                              <li><a href="taxi-details.html">Taxi Details Style 1</a></li>
-                              <li><a href="taxi-details-2.html">Taxi Details Style 2</a></li>
-                           </ul>
-                        </li>
-                        <li><a href="gallery.html">gallery Style 1</a></li>
-                        <li><a href="gallery-2.html">gallery Style 2</a></li>
-                        <li><a href="gallery-3.html">gallery Style 3</a></li>
-                        <li><a href="booking.html">Booking Ride</a></li>
-                        <li><a href="faq.html">Faq Style 1</a></li>
-                        <li><a href="faq-2.html">Faq Style 2</a></li>
-                        <li><a href="contact-2.html">Contact Style 2</a></li>
-                        <li><a href="error.html">Error</a></li>
-                     </ul>
-                  </li>
-                  <li><a href="contact.html">Contact</a></li>
+                  
                </ul>
             </div>
          </div>
       </div>
-      <div class="sidemenu-wrapper shopping-cart d-none d-lg-block">
+      <!--<div class="sidemenu-wrapper shopping-cart d-none d-lg-block">
          <div class="sidemenu-content">
             <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
             <div class="widget woocommerce widget_shopping_cart">
@@ -309,9 +217,16 @@ checkEmail(email);
                </div>
             </div>
          </div>
-      </div>
+      </div>-->
       <div class="sidemenu-wrapper d-none d-lg-block">
-         <div class="sidemenu-content bg-title">
+         <div class="container">
+               <div class="row">
+                  <div class="col-lg-9 m-0">
+                     <img src="assets/img/blog/SKVcabs.png" alt="image" class="img-fluid w-100 " />
+                  </div>
+
+       <div class="col-lg-3">
+         <div class="sidemenu-content bg-title" style="max-height: 1000px; overflow-y: auto;">
             <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
             <div class="widget footer-widget">
                <h3 class="widget_title">About Company</h3>
@@ -353,6 +268,10 @@ checkEmail(email);
             </div>
          </div>
       </div>
+               </div>
+         </div>
+      </div>
+      
       <div class="popup-search-box d-none d-lg-block">
          <button class="searchClose"><i class="fal fa-times"></i></button>
          <form action="#"><input type="text" placeholder="What are you looking for"> <button type="submit"><i class="fal fa-search"></i></button></form>
@@ -460,8 +379,9 @@ checkEmail(email);
                         <button class="th-menu-toggle d-inline-block d-lg-none"><i class="far fa-bars"></i></button>
                      </div>
                      <div class="col-auto d-none d-xl-block">
-                        <div class="header-button"><button type="button" class="icon-btn searchBoxToggler"><i class="far fa-search"></i></button> <a href="#" class="icon-btn sideMenuToggler2"><i class="fa-regular fa-bag-shopping"></i> <span class="badge">5</span></a> <a href="#" class="icon-btn sideMenuToggler"><i class="far fa-bars"></i></a> <a  href='#' onclick="scrollToSection('form-book')" class="th-btn radius-btn">BOOK A TAXI<i class="fa-regular fa-arrow-right ms-2"></i></a></div>
+                        <div class="header-button"> <a href="#" class="icon-btn sideMenuToggler"><i class="far fa-bars"></i></a> <a  href='#' onclick="scrollToSection('form-book')" class="th-btn radius-btn">BOOK A TAXI<i class="fa-regular fa-arrow-right ms-2"></i></a></div>
                      </div>
+                  <!--<button type="button" class="icon-btn searchBoxToggler"><i class="far fa-search"></i></button> <a href="#" class="icon-btn sideMenuToggler2"><i class="fa-regular fa-bag-shopping"></i> <span class="badge">5</span></a>-->
                   </div>
                </div>
             </div>
@@ -820,12 +740,12 @@ checkEmail(email);
                   </div>
                   <div class="about-quote style2">
                      <div class="about-review-wrapp">
-                        <span class="about-review">4.9/5</span>
-                        <div class="star"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-duotone fa-star-half-stroke"></i></div>
+                        <span class="about-review">4.0/5</span>
+                        <div class="star"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="far fa-star" style="color:#67D1F4" aria-hidden="true"></i></div>
                      </div>
                      <div>
                         <p class="text">Trust Score Rated</p>
-                        <span class="rating">Rated by over 20000+ customers</span>
+                        <span class="rating">Rated by over 2000+ customers</span>
                      </div>
                   </div>
                </div>
@@ -1034,13 +954,13 @@ checkEmail(email);
                <div class="col-md-6 col-xl-4">
                   <div class="testi-item style2 wow fadeInUp">
                      <div class="testi-item_star"><i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i>  <i class='fas fa-star-half-alt'aria-hidden="true"></i></i></div>
-                     <p class="testi-item_text">“The song depict their reunion when Harry picks her up his cab one night, and their reminiscence of their past relationship and dreams. The song was Chapins first hit.</p>
+                     <p class="testi-item_text">“I've had the pleasure of relying on SKVcabs for all my travel needs, and I can confidently say they are unmatched in the industry. From local rides to interstate journeys, SKVcabs consistently delivers a service that goes above and beyond expectations.</p>
                      <div class="testi-item_wrapp">
                         <div class="testi-item_profile">
                            <div class="testi-item_img"><img src="assets/img/update_2/testimonial/testi_3_1.jpg" alt="Avater"></div>
                            <div class="media-body">
-                              <h3 class="testi-item_name">David Smith</h3>
-                              <p class="testi-item_desig">Head Of Growth</p>
+                              <h3 class="testi-item_name">K. Prasanth</h3>
+                              <p class="testi-item_desig">Traveller</p>
                            </div>
                            <div class="testi-item_quote"><img src="assets/img/icon/quote_2.svg" alt="quote"></div>
                         </div>
@@ -1052,13 +972,13 @@ checkEmail(email);
                <div class="col-md-6 col-xl-4">
                   <div class="testi-item style2 wow fadeInUp">
                      <div class="testi-item_star"><i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i> <i class="far fa-star" style="color:#67D1F4" aria-hidden="true"></i></div>
-                     <p class="testi-item_text">“Troactively synthesize schemas before foster like leveraged expertise user friendly The song was Chapins first hit single business low before open source.</p>
+                     <p class="testi-item_text">“I appreciate the commitment SKVcabs shows to passenger safety; it's evident in their thorough driver vetting process and the well-maintained vehicles.</p>
                      <div class="testi-item_wrapp">
                         <div class="testi-item_profile">
                            <div class="testi-item_img"><img src="assets/img/update_2/testimonial/testi_3_2.jpg" alt="Avater"></div>
                            <div class="media-body">
-                              <h3 class="testi-item_name">Emily Isabella</h3>
-                              <p class="testi-item_desig">Bank Manager</p>
+                              <h3 class="testi-item_name">Rexin</h3>
+                              <p class="testi-item_desig">Software Developer</p>
                            </div>
                            <div class="testi-item_quote"><img src="assets/img/icon/quote_2.svg" alt="quote"></div>
                         </div>
@@ -1069,14 +989,14 @@ checkEmail(email);
                </div>
                <div class="col-md-6 col-xl-4">
                   <div class="testi-item style2 wow fadeInUp">
-                     <div class="testi-item_star"><i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i></div>
-                     <p class="testi-item_text">“Jroactively synthesize schemas before foster like leveraged expertise user friendly business low before open source schemas. turnkey data through compelling</p>
+                     <div class="testi-item_star"><i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i> <i class='fas fa-star-half-alt'aria-hidden="true"></i></div>
+                     <p class="testi-item_text">“What sets SKVcabs apart is their dedication to customer satisfaction. I've encountered situations where they've gone the extra mile to accommodate my travel needs, making me feel valued as a customer.</p>
                      <div class="testi-item_wrapp">
                         <div class="testi-item_profile">
                            <div class="testi-item_img"><img src="assets/img/update_2/testimonial/testi_3_3.jpg" alt="Avater"></div>
                            <div class="media-body">
-                              <h3 class="testi-item_name">Harry Callum</h3>
-                              <p class="testi-item_desig">CEO Founder</p>
+                              <h3 class="testi-item_name">Rahul</h3>
+                              <p class="testi-item_desig">Teacher</p>
                            </div>
                            <div class="testi-item_quote"><img src="assets/img/icon/quote_2.svg" alt="quote"></div>
                         </div>
@@ -1087,13 +1007,13 @@ checkEmail(email);
                </div>
                <div class="col-md-6 col-xl-4">
                   <div class="testi-item style2 wow fadeInUp">
-                     <div class="testi-item_star"><i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i></div>
-                     <p class="testi-item_text">Efficiently whiteboard turnkey data through compelling functionalitie. Assertively foster strategic human capital through multidisc meta-services.</p>
+                     <div class="testi-item_star"><i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i> <i class="fa-solid fa-star-sharp"></i> <i class="far fa-star" style="color:#67D1F4" aria-hidden="true"></i></div>
+                     <p class="testi-item_text">SKVcabs is a travel partner that understands the evolving needs of modern travelers. Whether you're a family on the go, or an adventurer exploring new districts, SKVcabs is the epitome of a trustworthy.</p>
                      <div class="testi-item_wrapp">
                         <div class="testi-item_profile">
                            <div class="testi-item_img"><img src="assets/img/update_2/testimonial/testi_3_4.jpg" alt="Avater"></div>
                            <div class="media-body">
-                              <h3 class="testi-item_name">Marcos Manuel</h3>
+                              <h3 class="testi-item_name">Anand</h3>
                               <p class="testi-item_desig">Bank Manager</p>
                            </div>
                            <div class="testi-item_quote"><img src="assets/img/icon/quote_2.svg" alt="quote"></div>

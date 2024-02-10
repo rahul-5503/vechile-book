@@ -1854,7 +1854,7 @@ textarea.is-invalid {
 	border-top: 1px solid #fdedf1
 }
 
-.th-mobile-menu ul li a {
+.th-mobile-menu ul li span {
 	display: block;
 	position: relative;
 	padding: 12px 0;
@@ -1864,7 +1864,7 @@ textarea.is-invalid {
 	color: var(--title-color)
 }
 
-.th-mobile-menu ul li a:before {
+.th-mobile-menu ul li span:before {
 	content: '\f105';
 	font-family: var(--icon-font);
 	position: relative;
