@@ -10190,7 +10190,7 @@ ul.comment-list .th-comment-item:first-child>.th-post-comment {
 
 .popup-search-box {
 	position: fixed;
-	top: 0;
+	top: 10px;
 	left: 50%;
 	background-color: rgba(0, 0, 0, 0.95);
 	height: 0;
@@ -10377,6 +10377,7 @@ ul.comment-list .th-comment-item:first-child>.th-post-comment {
 	-webkit-transition: all ease 0.4s;
 	transition: all ease 0.4s
 }
+
 
 .sidemenu-wrapper .closeButton:hover {
 	color: var(--theme-color);
@@ -27383,9 +27384,3 @@ option {
 		.clickable-a:hover{
 			cursor: pointer;
 		}
-
-		.error-message {
-			color: #dc3545; /* Error message color */
-			font-size: 2px; /* Error message font size */
-			margin-top: 2px; /* Spacing between input and error message */
-		  }
