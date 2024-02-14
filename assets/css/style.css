@@ -27408,3 +27408,98 @@ option {
 		.clickable-a:hover{
 			cursor: pointer;
 		}
+/* Style for form fields */
+.booking-form4 .form-control,
+.booking-form .form-control {
+	border-radius: 30px;
+}
+
+.invalid-feedback
+.error-messages {
+	color: #dc3545; /* Red color */
+	font-size: 0.875rem; /* 14px */
+	display: none; /* Hide by default */
+	margin-top: 0.25rem; /* 4px */
+}
+
+.is .invalid-feedback{
+	color: red;
+}
+.booking-form .invalid-feedback {
+	color: #dc3545; /* Red color for invalid feedback */
+	font-size: 0.9rem;
+	margin-top: 4px; /* Adjust as needed */
+}
+
+/* Style for valid feedback messages */
+.valid-feedback {
+	color: #28a745; /* Green color */
+	font-size: 0.875rem; /* 14px */
+	display: none; /* Hide by default */
+	margin-top: 0.25rem; /* 4px */
+	opacity: 0;
+}
+
+.booking-form .valid-feedback {
+	color: #28a745; /* Green color for valid feedback */
+	font-size: 0.9rem;
+	margin-top: 4px; /* Adjust as needed */
+}
+
+/* Style for form buttons */
+.booking-form4 .btn-primary,
+.booking-form .btn-primary 
+ {
+	border-radius: 30px;
+}
+
+/* Style for icons */
+
+/* Style for container */
+.booking-form4 .container,
+.booking-form .container
+{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+/* Style for form-group */
+.booking-form4 .form-group,
+.booking-form .form-group
+{
+	position: relative;
+}
+
+/* Style for form buttons */
+.booking-form4 .form-btn,
+.booking-form .form-btn {
+	text-align: center;
+}
+
+/* Style for form messages */
+.booking-form4 .form-messages,
+.booking-form .form-messages {
+	text-align: center;
+	margin-top: 10px;
+	font-size: 0.9rem;
+}
+.form-control:invalid {
+	border-color: #dc3545; /* Red border color */
+	box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25); /* Red box-shadow */
+}
+
+/* Style for highlighting valid fields */
+.form-control:valid {
+	border-color: #28a745; /* Green border color */
+	box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25); /* Green box-shadow */
+}
+
+.isphone{
+	border-color: #28a745; /* Green border color */
+	box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25); 
+}
+
+.phone {
+	border-color: #dc3545; /* Red border color */
+	box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25); /* Red box-shadow */
+}
