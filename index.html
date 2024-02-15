@@ -72,37 +72,29 @@
         var formData = new FormData(form);
         var email = form.querySelector('[name="email-ab"]').value;
         var phone = form.querySelector('[name="phone-ab"]').value;
+        
+        var emailsError = document.getElementById('submitab-error');
+         
 
-        if (!validateEmail(email)){
-         errorMessages.push("Please enter a valid email address.");
-            form.querySelector('[name="email-ab"]').classList.add('is-invalid');
-        } else {
-            form.querySelector('[name="email-ab"]').classList.remove('is-invalid');
-        }
-      
-        if (!validatePhone(phone)) {
-            // Display error message for invalid phone number
-            errorMessages.push("Phone number must be 10 digits.");
-            form.querySelector('[name="phone-ab"]').classList.add('is-invalid');
-        } else {
-            form.querySelector('[name="phone-ab"]').classList.remove('is-invalid');
-        }
+     //   trimitem(passengerab,"passengerab-error")?true:document.getElementById('passengerab').focus();
+         var emailval= validateEmailab();
+         var phone=validatePhoneab();
+         if(emailval ){
+         console.log("valid") 
+         return true;
+         }
+         else{
+         console.log("invalid");
+         focusInputField();    
+         return false;
+         }
 
-        var errorContainer = form.querySelector('.error-messages');
-        errorContainer.innerHTML = '';
-        errorMessages.forEach(message => {
-            var errorElement = document.createElement('div');
-            errorElement.classList.add('invalid-feedback');
-            errorElement.innerText = message;
-            errorContainer.appendChild(errorElement);
-        });
-
-        if (errorMessages.length > 0) {
-            // If there are errors, stop form submission
-            return;
-        }
-
-
+         if(phone){
+            return true
+         }else{
+            document.getElementById('phone-ab').focus(); 
+         } 
+         
         fetch('http://localhost', {
             method: 'POST',
             body: formData
@@ -140,9 +132,31 @@
         var formData = new FormData(form);
         var email = form.querySelector('[name="email"]').value;
         var phone = form.querySelector('[name="phone"]').value;
+        
+        var passengerab = form.querySelector('[name="passenger-ab"]').value;
+        var dateab = form.querySelector('[name="date-ab"]').value;
+        
+        var email = form.querySelector('[name="email"]').value;
+        var phone = form.querySelector('[name="phone"]').value;
+        var emailsError = document.getElementById('submit-error');
 
-       
+       var emailval=validateemail();
+       var phone=validatephone();
 
+       if(emailval && phone){
+         console.log("valid") 
+         return true;
+       }
+       else{
+         console.log("invalid")      
+         Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Fill the form to send a Mail!'
+                });
+         return false;   
+       }
+ 
         fetch('http://localhost', {
             method: 'POST',
             body: formData
@@ -174,38 +188,45 @@
     }
 
     // Function to validate email format
-    function validateEmail(email) {
-    // Regular expression for email validation
-    var emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-    return emailRegex.test(email);
+    function validateEmailab() {
+      var emailInput=document.getElementById('email-ab');
+      var email=emailInput.value;
+      var emailError = document.getElementById('emailab-error');
+      console.log(email);
+      if(email.length == 0){
+         emailError.innerHTML="email is required"
+         emailInput.classList.remove('isphone');
+         emailInput.classList.add('is-invalid');
+         return false;
+      }
+      if(!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)){
+         emailError.innerHTML="email invaild";
+         emailInput.classList.remove('isphone');
+         emailInput.classList.add('is-invalid');
+         return false;
+   }
+   emailError.innerHTML="correct"
+   emailInput.classList.remove('is-invalid');
+   emailInput.classList.add('isphone');
+   return true;
 }
-    function validatePhone(phone) {
+    function validatePhoneab() {
     // Check if phone number has exactly 10 digits and no other characters
-    if (/^\d{10}$/.test(phone && phone.length==10)) {
-        return true;
-    } else {
-        // Apply CSS styling to indicate the error
-        var phoneInput = document.getElementById('phone');
-        phoneInput.classList.add('invalid-feedback');
-        return false;
-    }
-}
-function validatephone(){
-   var phoneInput=document.getElementById('phone');
+    var phoneInput=document.getElementById('phone-ab');
    var phone=phoneInput.value;
-   var phoneError = document.getElementById('phone-error');
+   var phoneError = document.getElementById('phoneab-error');
    
    console.log(phone);
-   if(phone.length == 0){
+   if(phone.trim() == " "){
       phoneError.innerHTML = 'phone no is required';
-      phone.classList.add('form-control');
+    phoneInput.focus();
       phoneInput.classList.remove('valid');
       phoneInput.classList.add('phone');
       
       return false;
    }
    if(phone.length !== 10){
-      phoneError.innerHTML = 'phone no is required';
+      phoneError.innerHTML = 'phone no must be 10 digit';
       
       phoneInput.classList.remove('isphone');
       phoneInput.classList.add('is-invalid');
@@ -214,7 +235,40 @@ function validatephone(){
    }
    if(!phone.match(/^[0-9]{10}$/)){
       phoneError.innerHTML = 'phone no is required';
-      phone.classList.add('phone');
+      phoneError.classList.add('phone');
+      
+      return false;
+   }
+   phoneError.innerHTML='good';
+   phoneInput.classList.remove('is-invalid');
+   phoneInput.classList.add('isphone');
+   return true;
+}
+function validatephone(){
+   var phoneInput=document.getElementById('phone');
+   var phone=phoneInput.value;
+   var phoneError = document.getElementById('phone-error');
+   
+   console.log(phone);
+   if(phone.trim() == " "){
+      phoneError.innerHTML = 'phone no is required';
+      
+      phoneInput.classList.remove('valid');
+      phoneInput.classList.add('phone');
+      
+      return false;
+   }
+   if(phone.length !== 10){
+      phoneError.innerHTML = 'phone no must be 10 digit';
+      
+      phoneInput.classList.remove('isphone');
+      phoneInput.classList.add('is-invalid');
+   
+      return false;
+   }
+   if(!phone.match(/^[0-9]{10}$/)){
+      phoneError.innerHTML = 'phone no is required';
+      phoneError.classList.add('phone');
       
       return false;
    }
@@ -231,7 +285,7 @@ console.log(email);
    if(email.length == 0){
       emailError.innerHTML="email is required"
       emailInput.classList.remove('isphone');
-      phoneInput.classList.add('is-invalid');
+      emailInput.classList.add('is-invalid');
       return false;
    }
    if(!email.match(/^[A-Za-z]\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
@@ -245,6 +299,29 @@ console.log(email);
    emailInput.classList.add('isphone');
    return true;
 }
+
+ function focusInputField(){
+   var emailInput = document.getElementById('email-ab');
+    emailInput.focus();
+ }
+ function trimitem(name,errorname){
+   var Input=document.getElementById(name);
+   var email=Input.value;
+   var emailError = document.getElementById(errorname);
+   console.log(errorname)
+   console.log(email)
+   if(email.trim() == " "){
+    emailError.innerHTML = ' required';
+   
+      Input.classList.remove('valid');
+      Input.classList.add('phone');
+      
+      return false;
+   }
+   else{
+      console.log('good')
+   }
+ }
 </script>
 
        
@@ -259,55 +336,7 @@ console.log(email);
                <ul>
                   <li class="menu-item-has-children clickable-a">
                      <span onclick="scrollToSection('home')">Home</span>
-                     <!--<ul class="sub-menu">
-                        <li class="menu-item-has-children">
-                           <a href="#">Multipage</a>
-                           <ul class="sub-menu">
-                              <li><a href="index.html">Home One</a></li>
-                              <li><a href="index-2.html">Home Two</a></li>
-                              <li><a href="index-3.html">Home Three</a></li>
-                              <li><a href="index-4.html">Home Four</a></li>
-                              <li><a href="index-5.html">Home Five</a></li>
-                              <li><a href="index-6.html">Home Six</a></li>
-                              <li><a href="index-7.html">Home Seven</a></li>
-                              <li><a href="index-8.html">Home Eight</a></li>
-                           </ul>
-                        </li>
-                        <li class="menu-item-has-children">
-                           <a href="#">Onepage</a>
-                           <ul class="sub-menu">
-                              <li><a href="index-onepage.html">Home One Onepage</a></li>
-                              <li><a href="index-2-onepage.html">Home Two Onepage</a></li>
-                              <li><a href="index-3-onepage.html">Home Three Onepage</a></li>
-                              <li><a href="index-4-onepage.html">Home Four Onepage</a></li>
-                              <li><a href="index-5-onepage.html">Home Five Onepage</a></li>
-                              <li><a href="index-6-onepage.html">Home Six Onepage</a></li>
-                              <li><a href="index-7-onepage.html">Home Seven Onepage</a></li>
-                              <li><a href="index-8-onepage.html">Home Eight Onepage</a></li>
-                           </ul>
-                        </li>
-                        <li class="menu-item-has-children">
-                           <a href="#">RTL</a>
-                           <ul class="sub-menu">
-                              <li><a href="index-rtl.html">Home RTL One</a></li>
-                              <li><a href="index-rtl-2.html">Home RTL Two</a></li>
-                              <li><a href="index-rtl-3.html">Home RTL Three</a></li>
-                              <li><a href="index-rtl-4.html">Home RTL Four</a></li>
-                              <li><a href="index-rtl-5.html">Home RTL Five</a></li>
-                              <li><a href="index-rtl-6.html">Home RTL Six</a></li>
-                              <li><a href="index-rtl-7.html">Home RTL Seven</a></li>
-                              <li><a href="index-rtl-8.html">Home RTL Eight</a></li>
-                              <li><a href="index-onepage-rtl.html">Home RTL One Onepage</a></li>
-                              <li><a href="index-2-onepage-rtl.html">Home RTL Two Onepage</a></li>
-                              <li><a href="index-3-onepage-rtl.html">Home RTL Three Onepage</a></li>
-                              <li><a href="index-4-onepage-rtl.html">Home RTL Four Onepage</a></li>
-                              <li><a href="index-5-onepage-rtl.html">Home RTL Five Onepage</a></li>
-                              <li><a href="index-6-onepage-rtl.html">Home RTL Six Onepage</a></li>
-                              <li><a href="index-7-onepage-rtl.html">Home RTL Seven Onepage</a></li>
-                              <li><a href="index-8-onepage-rtl.html">Home RTL Eight Onepage</a></li>
-                           </ul>
-                        </li>
-                     </ul>-->
+                    
                      <li class="menu-item-has-children clickable-a">
                         <span onclick="scrollToSection('about-sec')">About Us</span>
                      </li>
@@ -322,25 +351,7 @@ console.log(email);
             </div>
          </div>
       </div>
-      <!--<div class="sidemenu-wrapper shopping-cart d-none d-lg-block">
-         <div class="sidemenu-content">
-            <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
-            <div class="widget woocommerce widget_shopping_cart">
-               <h3 class="widget_title">Shopping cart</h3>
-               <div class="widget_shopping_cart_content">
-                  <ul class="woocommerce-mini-cart cart_list product_list_widget">
-                     <li class="woocommerce-mini-cart-item mini_cart_item"><a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a> <a href="#"><img src="assets/img/product/product_thumb_1_1.jpg" alt="Cart Image">Suspension-Coil</a> <span class="quantity">1 × <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>94</span>,</span></li>
-                     <li class="woocommerce-mini-cart-item mini_cart_item"><a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a> <a href="#"><img src="assets/img/product/product_thumb_1_2.jpg" alt="Cart Image">absorbers Brake</a> <span class="quantity">1 × <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>89</span></span></li>
-                     <li class="woocommerce-mini-cart-item mini_cart_item"><a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a> <a href="#"><img src="assets/img/product/product_thumb_1_3.jpg" alt="Cart Image">Motorcycle-Shock</a> <span class="quantity">1 × <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>75</span></span></li>
-                     <li class="woocommerce-mini-cart-item mini_cart_item"><a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a> <a href="#"><img src="assets/img/product/product_thumb_1_4.jpg" alt="Cart Image">Body Spring</a> <span class="quantity">1 × <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>72</span></span></li>
-                     <li class="woocommerce-mini-cart-item mini_cart_item"><a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a> <a href="#"><img src="assets/img/product/product_thumb_1_5.jpg" alt="Cart Image">Body Spring</a> <span class="quantity">1 × <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>81</span></span></li>
-                  </ul>
-                  <p class="woocommerce-mini-cart__total total"><strong>Subtotal:</strong> <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>318.00</span></p>
-                  <p class="woocommerce-mini-cart__buttons buttons"><a href="cart.html" class="th-btn style1 wc-forward">View cart</a> <a href="checkout.html" class="th-btn style1 checkout wc-forward">Checkout</a></p>
-               </div>
-            </div>
-         </div>
-      </div>-->
+      
       <div class="sidemenu-wrapper d-none d-lg-block">
          <div class="container">
             <div class="row">
@@ -360,35 +371,37 @@ console.log(email);
                         </div>
                      
                         
-                        <form method="post" id="form1" class="" data-bg-src="assets/img/update_2/shape/booking_shape.png" novalidate>
-                           <h3>Book Vehicle Now</h3>
+                        <form method="post" id="form1" class="about-booking" data-bg-src="assets/img/update_2/shape/booking_shape.png" novalidate>
+                           <h3 class="pt-3 pl-2">Book Vehicle Now</h3>
                            <input type="hidden" name="form_type" value="form1">
                            <div class="container">
                                <div class="row">
                                    <div class="form-group mb-12">
-                                       <input type="text" class="form-control rounded-pill border border-primary" name="text-ab" id="text-ab" placeholder="Your Name" required>
+                                       <input type="text" class="form-control rounded-pill border " name="text-ab" id="text-ab" placeholder="Your Name" required onkeyup="trimitem(this.id ,'nameab-error')">
                                        <i class="fa-light fa-user px-3"></i>
-                                       <div class="invalid-feedback">Enter your Name</div>
+                                      
+                                       <div class="invalid-feedback" id="nameab-error" ></div>
                                    </div>
                                    <div class="form-group mb-12">
-                                       <input type="number" class="form-control rounded-pill border border-primary" name="phone-ab" id="phone-ab" placeholder="Phone Number" required>
+                                       <input type="number" class="form-control rounded-pill border " name="phone-ab" id="phone-ab" placeholder="Phone Number" required onkeyup="validatePhoneab()">
                                        <i class="fa-light fa-phone-rotary px-3"></i>
-                                       <div class="invalid-feedback" >Number must be 10 digits</div>
-                                       <div class="valid-feedback">Good</div>
+                                       <div class="invalid-feedback" id="phoneab-error" ></div>
+                                      
                                    </div>
                                    <div class="form-group mb-12">
-                                       <input type="email" class="form-control rounded-pill border border-primary" name="email-ab" id="email-ab" placeholder="Your Email" required>
+                                       <input type="email" class="form-control rounded-pill border " name="email-ab" id="email-ab" placeholder="Your Email" required onkeyup="validateEmailab()">
                                        <i class="fa-light fa-envelope px-3"></i>
-                                       <div class="invalid-feedback">Must be email format</div>
-                                       <div class="valid-feedback">Good</div>
+                                       <div class="invalid-feedback" id="emailab-error" ></div>
+                                     
                                    </div>
                                    <div class="form-group mb-12">
-                                       <input type="number" class="form-control rounded-pill border border-primary" name="passenger-ab" id="passenger-ab" placeholder="Passengers count" required>
-                                       <div class="invalid-feedback">Enter Number of Passengers</div>
-                                       <div class="valid-feedback">Good</div>
+                                       <input type="number" class="form-control rounded-pill border " name="passenger-ab" id="passenger-ab" placeholder="Passengers count" required onkeyup="trimitem(this.id,'passengerab-error')">
+                                       
+                                       <div class="invalid-feedback" id="passengerab-error" ></div>
+                                      
                                    </div>
                                    <div class="form-group mb-12">
-                                       <select id="fromplace-ab" name="fromplace-ab" class="form-select rounded-pill border border-primary" required>
+                                       <select id="fromplace-ab" name="fromplace-ab" class="form-select rounded-pill border  form-control" required>
                                            <option value="" disabled selected hidden>Start Destination</option>                   
                                         <option value="Madurai">Madurai</option>
                                         <option value="Trichy">Trichy</option>
@@ -404,9 +417,10 @@ console.log(email);
                                         <option value="Kodaikanal">Kodaikanal</option>
                                         <option value="Palani">Palani</option>
                                     </select>
+                                    <div class="invalid-feedback" id="fromab-error" ></div>
                                 </div>
                                 <div class="form-group mb-12">
-                                 <select id="drop-to-loc" name="toplace-ab" class="form-select rounded-pill border border-primary" required>
+                                 <select id="drop-to-loc" name="toplace-ab" class="form-select rounded-pill border form-control" required>
                                      <option value="" disabled selected hidden>End Destination</option>
                                         <option value="Madurai">Madurai</option>
                                         <option value="Trichy">Trichy</option>
@@ -422,16 +436,20 @@ console.log(email);
                                         <option value="Kodaikanal">Kodaikanal</option>
                                         <option value="Palani">Palani</option>
                                     </select>
+                                    <div class="invalid-feedback" id="toplaceab-error" ></div>
                                 </div>
                                 <div class="form-group mb-12">
-                                 <input type="text" class="date-pick form-control rounded-pill border border-primary" name="date-ab" id="date-pick" placeholder="Select Date" required>
+                                 <input type="text" class="date-pick form-control rounded-pill border " name="date-ab" id="date-pick" placeholder="Select Date" required>
                                  <i class="fa-light fa-calendar-days px-3"></i>
+                                 <div class="invalid-feedback" id="dateab-error" ></div>
                              </div>
                              <div class="form-group mb-12">
-                                 <input type="text" class="time-pick form-control rounded-pill border border-primary" name="time-ab" id="time-pick" placeholder="Select Time" required>
+                                 <input type="text" class="time-pick form-control rounded-pill border " name="time-ab" id="time-pick" placeholder="Select Time" required>
                                  <i class="fa-light fa-clock px-3"></i>
+                                 
                              </div>
                              <div style="display: flex; justify-content: center;">
+                              <div class="invalid-feedback" id="submitab-error" ></div>
                                  <button class="btn btn-primary rounded-pill" type="submit" name="submit1" value="submit1" onclick="submitform('form1')">Book Now <i class="fa-regular fa-arrow-right ms-2"></i></button>
                              </div>
                          </div>
@@ -993,6 +1011,7 @@ console.log(email);
                            <i class="fa-light fa-clock"></i>
                        </div>
                        <div class="form-btn col-12">
+                        <div class="invalid-feedback" id="submit-error"></div>
                            <button class="th-btn radius-btn" type="submit" name="submit2" value="submit2" onclick="submitform2('form2')">Book Now<i class="fa-regular fa-arrow-right ms-2"></i></button>
                        </div>
                    </div>
