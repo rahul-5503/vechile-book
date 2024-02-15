@@ -132,12 +132,6 @@
         var formData = new FormData(form);
         var email = form.querySelector('[name="email"]').value;
         var phone = form.querySelector('[name="phone"]').value;
-        
-        var passengerab = form.querySelector('[name="passenger-ab"]').value;
-        var dateab = form.querySelector('[name="date-ab"]').value;
-        
-        var email = form.querySelector('[name="email"]').value;
-        var phone = form.querySelector('[name="phone"]').value;
         var emailsError = document.getElementById('submit-error');
 
        var emailval=validateemail();
@@ -202,11 +196,13 @@
       if(!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)){
          emailError.innerHTML="email invaild";
          emailInput.classList.remove('isphone');
+         emailInput.classList.add('phone');
          emailInput.classList.add('is-invalid');
          return false;
    }
    emailError.innerHTML="correct"
    emailInput.classList.remove('is-invalid');
+   emailInput.classList.remove('phone')
    emailInput.classList.add('isphone');
    return true;
 }
@@ -288,7 +284,7 @@ console.log(email);
       emailInput.classList.add('is-invalid');
       return false;
    }
-   if(!email.match(/^[A-Za-z]\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+   if(!email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)){
       emailError.innerHTML="email invaild";
       emailInput.classList.remove('isphone');
       emailInput.classList.add('is-invalid');
@@ -296,6 +292,7 @@ console.log(email);
    }
    emailError.innerHTML="correct"
    emailInput.classList.remove('is-invalid');
+   emailInput.classList.remove('phone');
    emailInput.classList.add('isphone');
    return true;
 }
