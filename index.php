@@ -26,10 +26,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the form with id "form2" was submitted
     if (isset($_POST['form_type']) && $_POST['form_type'] === 'form1') {
         try{
-        $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
-$email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-$phone = filter_var($_POST['phone'], FILTER_SANITIZE_NUMBER_INT);
-$passenger = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+        $name = filter_var($_POST['text-ab'], FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST['email-ab'], FILTER_SANITIZE_EMAIL);
+    $phone = filter_var($_POST['phone-ab'], FILTER_SANITIZE_NUMBER_INT);
+    $passenger = filter_var($_POST['passenger-ab'], FILTER_SANITIZE_STRING);
+    $startloc = filter_var($_POST['fromplace-ab'], FILTER_SANITIZE_STRING);
+    $endloc = filter_var($_POST['toplace-ab'], FILTER_SANITIZE_STRING);
+    $date = filter_var($_POST['date-ab'], FILTER_SANITIZE_STRING);
+    $time = filter_var($_POST['time-ab'], FILTER_SANITIZE_STRING);
+    
 
     $mail->isSMTP();
     $mail->Host       = 'sh022.hostgator.in';
