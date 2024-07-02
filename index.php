@@ -1,15 +1,10 @@
-
-
 <?php
-
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 // PHPMailer library is required for SMTP email sending
-header("Access-Control-Allow-Origin: *"); // Allow requests from any origin
-// header("Access-Control-Allow-Origin: http://yourdomain.com"); // Allow requests from a specific origin
-
+header("Access-Control-Allow-Origin: *"); 
 // Other headers you might need
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
@@ -36,18 +31,17 @@ $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 $phone = filter_var($_POST['phone'], FILTER_SANITIZE_NUMBER_INT);
 $passenger = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
 
-    //Server settings
     $mail->isSMTP();
     $mail->Host       = 'sh022.hostgator.in';
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'support@skvcabs.com'; // Your Gmail address
-    $mail->Password   = 'UqH@A462%:fM%8q'; // Your Gmail password
+    $mail->Username   = 'support@*****.com'; // Your Gmail address
+    $mail->Password   = '************'; // Your Gmail password
     $mail->SMTPSecure = 'ssl';
     $mail->Port       =  465;
 
     //Recipients
     $mail->setFrom($email, 'Your Name');
-    $mail->addAddress('support@skvcabs.com', 'Recipient Name');
+    $mail->addAddress('support@*******.com', 'Recipient Name');
 
     // Content
     $mail->isHTML(true);
@@ -66,8 +60,6 @@ $passenger = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
        
        $response = array("success" => true, "message" => "Form data received and processed successfully!");
        http_response_code(200);
-// Example: Sending an error response
-// $response = array("success" => false, "message" => "Error: Failed to process form data!");
  http_response_code(200);
 
    echo json_encode($response);
@@ -99,14 +91,14 @@ $passenger = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
         $mail->isSMTP();
         $mail->Host       = 'sh022.hostgator.in';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'support@skvcabs.com'; // Your Gmail address
-        $mail->Password   = 'UqH@A462%:fM%8q'; // Your Gmail password
+        $mail->Username   = 'support@******.com'; // Your Gmail address
+        $mail->Password   = '***********'; // Your Gmail password
         $mail->SMTPSecure = 'ssl';
         $mail->Port       =  465;
     
         //Recipients
         $mail->setFrom($email, 'Your Name');
-        $mail->addAddress('support@skvcabs.com', 'Recipient Name');
+        $mail->addAddress('support@******.com', 'Recipient Name');
     
         // Content
         $mail->isHTML(true);
